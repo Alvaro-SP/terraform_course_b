@@ -1,0 +1,3 @@
+
+ambiente = "dev"
+equipo = ["ana", "luis", "maria", "pedro"]
