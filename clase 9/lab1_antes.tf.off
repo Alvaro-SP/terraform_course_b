@@ -1,0 +1,45 @@
+resource "aws_instance" "web1" {
+  ami                    = data.aws_ami.amazon_linux.id
+  instance_type          = var.instance_type
+  vpc_security_group_ids = [aws_security_group.web.id]
+
+  tags = merge(local.tags, {
+    Name = "web-1"
+  })
+}
+resource "aws_instance" "web2" {
+  ami                    = data.aws_ami.amazon_linux.id
+  instance_type          = var.instance_type
+  vpc_security_group_ids = [aws_security_group.web.id]
+
+  tags = merge(local.tags, {
+    Name = "web-2"
+  })
+}
+resource "aws_instance" "web3" {
+  ami                    = data.aws_ami.amazon_linux.id
+  instance_type          = var.instance_type
+  vpc_security_group_ids = [aws_security_group.web.id]
+
+  tags = merge(local.tags, {
+    Name = "web-3"
+  })
+}
+resource "aws_instance" "web4" {
+  ami                    = data.aws_ami.amazon_linux.id
+  instance_type          = var.instance_type
+  vpc_security_group_ids = [aws_security_group.web.id]
+
+  tags = merge(local.tags, {
+    Name = "web-4"
+  })
+}
+resource "aws_instance" "web5" {
+  ami                    = data.aws_ami.amazon_linux.id
+  instance_type          = var.instance_type
+  vpc_security_group_ids = [aws_security_group.web.id]
+
+  tags = merge(local.tags, {
+    Name = "web-5"
+  })
+}
