@@ -1,0 +1,15 @@
+module "registry_bucket" {
+  source  = "terraform-aws-modules/s3-bucket/aws"
+  version = "4.11.0" # versión exacta: el .terraform.lock.hcl NO guarda versiones de módulos
+
+  bucket = "${var.project_name}-registry" # ojo: este módulo llama "bucket" a su input, no "bucket_name"
+
+  tags = {
+    Environment = var.environment
+    ManagedBy   = "terraform"
+  }
+}
+
+output "registry_bucket_arn" {
+  value = module.registry_bucket.s3_bucket_arn
+}

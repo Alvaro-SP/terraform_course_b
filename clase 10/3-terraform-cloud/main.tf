@@ -2,7 +2,7 @@ terraform {
   required_version = ">= 1.5.0"
 
   cloud {
-    organization = "edutek-latam"
+    organization = "edutek-terraform-2026"
 
     workspaces {
       name = "edutek-clase10"

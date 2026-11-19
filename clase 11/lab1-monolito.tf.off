@@ -1,0 +1,50 @@
+
+# ---------------------------------------------------------------- logs
+resource "aws_s3_bucket" "logs" {
+  bucket = "${var.project_name}-logs"
+
+  tags = {
+    Name        = "${var.project_name}-logs"
+    Environment = var.environment
+    ManagedBy   = "terraform"
+  }
+}
+
+resource "aws_s3_bucket_public_access_block" "logs" {
+  bucket = aws_s3_bucket.logs.id
+
+  block_public_acls       = true
+  block_public_policy     = true
+  ignore_public_acls      = true
+  restrict_public_buckets = true
+}
+
+
+# ---------------------------------------------------------------- data
+# Copiar, pegar y cambiar "logs" por "data"... en 6 lugares.
+resource "aws_s3_bucket" "data" {
+  bucket = "${var.project_name}-data"
+
+  tags = {
+    Name        = "${var.project_name}-data"
+    Environment = var.environment
+    ManagedBy   = "terraform"
+  }
+}
+
+resource "aws_s3_bucket_public_access_block" "data" {
+  bucket = aws_s3_bucket.data.id
+
+  block_public_acls       = true
+  block_public_policy     = true
+  ignore_public_acls      = true
+  restrict_public_buckets = true
+}
+# ---------------------------------------------------------------- outputs
+output "logs_bucket_arn" {
+  value = aws_s3_bucket.logs.arn
+}
+
+output "data_bucket_arn" {
+  value = aws_s3_bucket.data.arn
+}
