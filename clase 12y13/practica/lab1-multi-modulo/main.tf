@@ -35,5 +35,6 @@ module "data" {
   private_subnet_ids = module.network.private_subnet_ids # privadas, no públicas
   app_sg_id          = module.compute.app_sg_id          # ← output de compute
   app_name           = var.app_name
+  app_url            = module.compute.app_url
   environment        = var.environment
 }

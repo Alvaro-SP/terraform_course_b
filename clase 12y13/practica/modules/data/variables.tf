@@ -37,3 +37,8 @@ variable "db_username" {
   type        = string
   default     = "appadmin"
 }
+
+variable "app_url" {
+  description = "Url de la aplicacion generada en compute"
+  type = string
+}
